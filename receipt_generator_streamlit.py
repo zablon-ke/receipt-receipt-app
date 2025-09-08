@@ -42,7 +42,7 @@ def generate_receipt_pdf(data, output_file="receipt.pdf"):
 
     # Top dashed line
     c.drawString(5 * mm, y, "="*30)
-    y -= line_height + 2
+    y -= (line_height + 2)
 
     # Receipt details
     details_keys = ["Ticket No.", "Receipt No.", "Entry Time", "Pay Time", "Duration",
@@ -66,18 +66,20 @@ def generate_receipt_pdf(data, output_file="receipt.pdf"):
     c.drawString(5 * mm, y, "="*30)
     y -= line_height
 
+    # Exit messages left-aligned
     for text in ["You have 15 Mins to Exit", "Use your ticket to Exit"]:
         c.drawString(indent_x, y, text)
         y -= line_height
     y -= 2
 
-    # CU placeholders
+    # Final dashed lines + CU placeholders (fixed spacing)
     c.drawString(5 * mm, y, "="*30)
     y -= line_height
+
     c.drawString(5 * mm, y, "CU IN No: {{cu_serial_no}}")
     y -= line_height
     c.drawString(5 * mm, y, "CU SN No: {{cu_invoice_no}}")
-    y -= 2
+    y -= line_height  # proper spacing before final dashed line
     c.drawString(5 * mm, y, "="*30)
 
     c.save()
