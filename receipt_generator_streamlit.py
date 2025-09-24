@@ -91,14 +91,16 @@ st.title("Parking Receipt Generator")
 # Collect user inputs
 ticket_data = {}
 fields = ["Ticket No.", "Receipt No.", "Entry Time", "Pay Time", "Duration",
-          "Sub Total", "Total Due", "Tendered", "Change", "Pay Point"]
+          "Total Due", "Tendered", "Change"]  # Sub Total & Pay Point removed
 
 for field in fields:
     ticket_data[field] = st.text_input(field)
 
 # Lock fixed values
+ticket_data["Sub Total"] = "43"      # Locked value
 ticket_data["Tax Amount"] = "7"
 ticket_data["Pay Mode"] = "CASH"
+ticket_data["Pay Point"] = "AP02"    # Locked value
 ticket_data["Parked at"] = "Riverside"
 
 if st.button("Generate Receipt"):
