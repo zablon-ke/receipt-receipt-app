@@ -97,10 +97,10 @@ for field in fields:
     ticket_data[field] = st.text_input(field)
 
 # Lock fixed values
-ticket_data["Sub Total"] = "43"      # Locked value
+ticket_data["Sub Total"] = "43"       # Locked value
 ticket_data["Tax Amount"] = "7"
 ticket_data["Pay Mode"] = "CASH"
-ticket_data["Pay Point"] = "AP02"    # Locked value
+ticket_data["Pay Point"] = "APS02"    # Corrected locked value
 ticket_data["Parked at"] = "Riverside"
 
 if st.button("Generate Receipt"):
